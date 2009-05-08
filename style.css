@@ -1,5 +1,5 @@
 body {
-	padding-top: 28px !important;
+	padding-top: 45px !important;
 }
 
 #bsbar {
@@ -7,7 +7,8 @@ body {
 	background: url('http://wpsynergy.org/images/header.png') top left !important;
 	color: #fff !important;
 	font: 12px "Lucida Grande","Lucida Sans Unicode",Tahoma,Verdana !important;
-	height: 28px !important;
+	line-height: 45px;
+	height: 45px !important;
 	left: 0 !important;
 	margin: 0 !important;
 	position: absolute !important;
@@ -62,7 +63,7 @@ body {
 #bsbar .bsbar-dropdown {
 	background: url('images/bullet_arrow_down.gif') no-repeat 100% 0 !important;
 	padding-right: 1em !important;
-	line-height: 28px !important;
+	line-height: 45px !important;
 }
 
 #bsbar .bsbar-menupop ul {
@@ -94,7 +95,7 @@ body {
 	font-weight: normal !important;
 	letter-spacing: normal !important;
 	padding: 0 0.75em !important;
-	line-height: 28px !important;
+	line-height: 45px !important;
 	text-decoration: none !important;
 }
 

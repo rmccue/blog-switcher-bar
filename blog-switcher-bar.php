@@ -55,7 +55,7 @@ class BlogSwitcherBar {
 	function SetupMenu() {
 		if ( !empty($this->menu) ) return;
 
-		$this->menu = array(
+		/*$this->menu = array(
 			'url' => array(
 				0 => array(
 					'id' => 0, // >39 = right-hand side
@@ -64,7 +64,24 @@ class BlogSwitcherBar {
 				),
 				//1 => array(...) - submenu
 			),
-		);
+			'eh' => array(
+				0 => array(
+					'id' => 40, // >39 = right-hand side
+					'title' => 'Title',
+					'url' => 'http://.../',
+				),
+				//1 => array(...) - submenu
+			),
+		);*/
+
+		global $wpdb;
+		foreach(get_blog_list() as $blog_id) {
+			$this->menu[] = array(
+				'id' => $blog['blog_id'],
+				'title' => get_blog_option( $blog['blog_id'], "blogname"),
+				'url' => $details['domain'] . $details['path']
+			);
+		}
 	}
 
 	// Output the needed CSS for the plugin
