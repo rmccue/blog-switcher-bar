@@ -4,14 +4,14 @@ body {
 
 #bsbar {
 	z-index: 1001 !important;
-	background: url('http://wpsynergy.org/images/header.png') top left !important;
+	background: url('/images/header.png') top left !important;
 	color: #fff !important;
 	font: 12px "Lucida Grande","Lucida Sans Unicode",Tahoma,Verdana !important;
 	line-height: 45px;
 	height: 45px !important;
 	left: 0 !important;
 	margin: 0 !important;
-	position: absolute !important;
+	position: fixed !important;
 	top: 0 !important;
 	width: 100% !important;
 }
@@ -61,10 +61,14 @@ body {
 	-webkit-border-bottom-right-radius: 7px;
 }
 
-#bsbar .bsbar-dropdown {
-	background: url('images/bullet_arrow_down.gif') no-repeat 100% 0 !important;
+#bsbar .bsbar-menu_switch {
 	padding-right: 1em !important;
-	line-height: 45px !important;
+}
+
+#bsbar .bsbar-dropdown {
+	/* background: url('images/bullet_arrow_down.gif') no-repeat 100% 0 !important; 
+	padding-right: 1em !important;
+	line-height: 45px !important;*/
 }
 
 #bsbar .bsbar-menupop ul {
@@ -101,7 +105,7 @@ body {
 }
 
 #bsbar a:hover,#bsbar .bsbar-menupop:hover {
-	background: url('images/background.png') bottom left !important;
+	/* background: url('images/background.png') bottom left !important; */
 }
 
 #bsbar-leftside ul li ul {

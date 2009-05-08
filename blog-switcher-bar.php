@@ -111,9 +111,9 @@ class BlogSwitcherBar {
 	<div id="bsbar-leftside">
 		<ul>
 <?php
-			global $current_site;
+			global $current_blog;
 ?>
-			<li><a href="http://<?php echo $current_site->domain . $current_site->path ?>">Current Theme: <?php echo $current_site->site_name?></a></li>
+			<li><a href="http://<?php echo $current_blog->domain . $current_blog->path ?>">Current Theme: <?php echo get_blog_option( $current_blog->blog_id, "blogname") ?></a></li>
 <?php
 
 			$switched = FALSE;
@@ -154,7 +154,7 @@ class BlogSwitcherBar {
 			}
 
 ?>
-			<li><a href="/">Return to site</a></li>
+			<li><a href="/">Return to WPSynergy.org</a></li>
 		</ul>
 	</div>
 </div>
