@@ -110,7 +110,10 @@ class BlogSwitcherBar {
 <div id="bsbar">
 	<div id="bsbar-leftside">
 		<ul>
-			<li>Current Theme: XXXXX</li>
+<?php
+			global $current_site;
+?>
+			<li><a href="http://<?php echo $current_site->domain . $current_site->path ?>">Current Theme: <?php echo $current_site->site_name?></a></li>
 <?php
 
 			$switched = FALSE;

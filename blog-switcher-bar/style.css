@@ -49,6 +49,7 @@ body {
 #bsbar ul li {
 	float: left !important;
 	margin: 0 !important;
+	line-height: 45px !important;
 }
 
 #bsbar ul li.blogmeta {
