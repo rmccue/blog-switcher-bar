@@ -42,7 +42,7 @@ class BlogSwitcherBar {
 		// This version only supports WP 2.7+
 		if ( !function_exists('wp_list_comments') ) return;
 
-		$this->folder = plugins_url('blog-switcher-bar');
+		$this->folder = WPMU_PLUGIN_URL . '/blog-switcher-bar';
 
 		add_action( 'wp_head', array(&$this, 'OutputCSS') );
 		add_action( 'wp_footer', array(&$this, 'OutputMenuBar') );
@@ -75,11 +75,17 @@ class BlogSwitcherBar {
 		);*/
 
 		global $wpdb;
-		foreach(get_blog_list() as $blog_id) {
-			$this->menu[] = array(
+
+		$this->menu['switch'] = array(0 => array(
+			'id' => 0,
+			'title' => 'Switch Theme Preview',
+			'url' => '#'
+		));
+		foreach(get_blog_list() as $blog) {
+			$this->menu['switch'][] = array(
 				'id' => $blog['blog_id'],
 				'title' => get_blog_option( $blog['blog_id'], "blogname"),
-				'url' => $details['domain'] . $details['path']
+				'url' => 'http://' . $blog['domain'] . $blog['path']
 			);
 		}
 	}
@@ -104,12 +110,13 @@ class BlogSwitcherBar {
 <div id="bsbar">
 	<div id="bsbar-leftside">
 		<ul>
+			<li>Current Theme: XXXXX</li>
 <?php
 
 			$switched = FALSE;
 
 			foreach( $this->menu as $topstub => $menu ) {
-				if ( FALSE === $switched && 39 < $menu[0]['id'] ) {
+				if ( FALSE === $switched && 'switch' === $topstub ) {
 					echo "		</ul>\n	</div>\n	<div id=\"bsbar-rightside\">\n		<ul>\n";
 					$switched = TRUE;
 				}
@@ -156,5 +163,4 @@ class BlogSwitcherBar {
 
 // Start this plugin once all other files and plugins are fully loaded
 add_action( 'plugins_loaded', create_function( '', 'global $BlogSwitcherBar; $BlogSwitcherBar = new BlogSwitcherBar();' ), 15 );
-
 ?>
