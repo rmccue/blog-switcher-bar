@@ -56,7 +56,7 @@ class BlogSwitcherBar {
 		if ( !empty($this->menu) ) return;
 
 		$this->menu = array(
-			'url' => array)
+			'url' => array(
 				0 => array(
 					'id' => 0, // >39 = right-hand side
 					'title' => 'Title',
@@ -103,7 +103,7 @@ class BlogSwitcherBar {
 					echo '			<li class="bsbar-menu_';
 					echo str_replace( '.', '-', $topstub );
 
-					echo '"><a href="' . $menu[0]['url'] '">' . $menu[0]['title'] . "</a></li>\n";
+					echo '"><a href="' . $menu[0]['url'] . '">' . $menu[0]['title'] . "</a></li>\n";
 				} else {
 					echo '			<li class="bsbar-menu_';
 					echo str_replace( '.', '-', $topstub );
@@ -118,8 +118,6 @@ class BlogSwitcherBar {
 					foreach( $menu as $submenustub => $submenu ) {
 						if ( 0 === $submenustub || ( !empty($this->settings['hide'][$topstub]) && TRUE === $this->settings['hide'][$topstub][$submenustub] && ( 'wordpress-admin-bar' !== $submenustub || !is_admin() ) ) )
 							continue;
-
-						$parent = ( TRUE === $menu[0]['custom'] ) ? 'admin.php' : $topstub;
 
 						echo '					<li><a href="' . $submenu['url'] . '">' . $submenu['title'] . "</a></li>\n";
 					}
